@@ -1,0 +1,115 @@
+.ListItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+    border: 1px solid rgba(51, 51, 51, 0.5);
+    background-color: #154042d9  ;
+    border-radius: 10px;
+    padding: 1.5%;
+    height: 30px;
+}
+
+.Complete {
+    text-decoration-style: solid;
+    text-decoration-line: line-through;
+    text-decoration-color: red;
+    opacity: 0.5;
+}
+
+.List {
+    width: 65%;
+    background-color: #15404200;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    padding-left: 10px;
+    margin-right: 15px;
+}
+
+.ButtonsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 25%;
+    margin-right: 15px;
+}
+
+.ButtonComplete,
+.ButtonDelete,
+.ButtonEdit {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 25px;
+  border-radius: 50%;
+  transition: font-size 0.5s linear transform 2s;
+  margin: 0 10px
+}
+
+.ButtonComplete {
+    color: lightblue;
+    margin-right: 10px;
+}
+.ButtonComplete:hover {
+    font-size: 27px;
+}
+.ButtonEdit {
+    color: orange;
+    margin-right: 10px;
+}
+.ButtonEdit:hover {
+    font-size: 27px;
+}
+.ButtonDelete {
+    color: red;
+}
+.ButtonDelete:hover {
+    font-size: 27px;
+}
+button:focus {
+    outline: none;
+}
+
+.GreenButton {
+    color: rgb(0, 178, 0);
+}
+
+@media screen and (max-width: 900px) {
+    .ButtonComplete,
+    .ButtonDelete,
+    .ButtonEdit {
+        font-size: 20px;
+        margin: 0 5px;
+    }
+    .List {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .ListItem {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .ButtonsContainer {
+        width: 35%;
+        margin-right: 0;
+    }
+    .ButtonComplete,
+    .ButtonDelete,
+    .ButtonEdit {
+        font-size: 18px;
+        margin: 0;
+    }
+    .List {
+        width: 65%;
+        padding-left: 5px;
+        font-size: 18px;
+    }
+}
