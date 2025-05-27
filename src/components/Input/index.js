@@ -3,7 +3,7 @@ import css from "./style.module.css";
 
 var idCounter = 0;
 
-const Input = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
+const Input = ({ input, setInput, todos, setTodos, editTodo, setEditTodo, darkMode }) => {
     const updateTodo = (title, id, completed) => {
         const newTodo = todos.map((todo) => todo.id === id ? {title, id, completed} : todo);
         setTodos(newTodo);
@@ -37,8 +37,8 @@ const Input = ({ input, setInput, todos, setTodos, editTodo, setEditTodo }) => {
 
     return (
         <form className={css.FormContainer} onSubmit={onFormSubmit}>
-            <input type="text" placeholder="Хийх зүйлсээ бичнэ үү :)" className={css.TaskInput} value={input} required onChange={onInputChange}/>
-            <button className={`${css.ButtonAdd} ${editTodo ? css.EditButton : ""}`} type="submit">{editTodo ? "Засах" : "Нэмэх"}</button>
+            <input type="text" placeholder="Хийх зүйлсээ бичнэ үү :)" className={`${css.TaskInput} ${darkMode ? css.darkMode : ""}`} value={input} required onChange={onInputChange}/>
+            <button className={`${css.ButtonAdd} ${editTodo ? css.EditButton : ""} ${darkMode ? css.darkMode : ""}`} type="submit">{editTodo ? "Засах" : "Нэмэх"}</button>
         </form>
     )
 }

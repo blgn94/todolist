@@ -19,6 +19,18 @@
 .TaskInput::placeholder {
     font-size: 18px;
 }
+
+.TaskInput.darkMode {
+    color: var(--text-color-dark);
+    background-color: var(--button-bg-dark); /* Using button-bg-dark as it's slightly lighter than todo-box-bg-dark */
+    border-color: var(--text-color-dark);
+}
+
+.TaskInput.darkMode::placeholder {
+    color: var(--text-color-dark);
+    opacity: 0.7; /* Make placeholder slightly dimmer */
+}
+
 .ButtonAdd {
     width: 24%;
     padding: 1.5%;
@@ -26,6 +38,7 @@
     border-radius: 10px;
     border: none;
     background-color: rgb(136, 210, 235);
+    color: #000; /* Explicitly set light mode text color for ButtonAdd */
     cursor: pointer;
     transition: padding 1s linear transform 2s;
 }
@@ -33,6 +46,17 @@
     padding: 11px;
     background-color: rgb(83, 202, 241);
 }
+
+.ButtonAdd.darkMode {
+    background-color: var(--button-bg-dark);
+    color: var(--button-text-color-dark);
+    border: 1px solid var(--button-border-dark); /* Added border for consistency */
+}
+
+.ButtonAdd.darkMode:hover {
+    background-color: var(--todo-box-bg-dark); /* Darken on hover */
+}
+
 input:focus {
     outline: none;
     cursor: default;
@@ -45,6 +69,17 @@ input:focus {
 .EditButton:hover {
     background-color: orange
 }
+
+.EditButton.darkMode {
+    background-color: #b8860b; /* DarkGoldenRod - a darker orange */
+    color: var(--button-text-color-dark);
+    border: 1px solid var(--button-border-dark);
+}
+
+.EditButton.darkMode:hover {
+    background-color: #8B4513; /* SaddleBrown - even darker orange for hover */
+}
+
 
 @media screen and (max-width: 900px) {
     .TaskInput::placeholder {
@@ -72,11 +107,13 @@ input:focus {
     }
     .TaskInput {
       width: 60%;
+      margin-right: 10px; /* Reduce margin for smaller screens */
     }
     .TaskInput::placeholder {
         font-size: 14px;
     }
     .ButtonAdd {
         width: 30%;
+        font-size: 16px; /* Ensure button font size is also adjusted here */
     }
 }
