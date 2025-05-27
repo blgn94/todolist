@@ -2,8 +2,25 @@
   margin: 0;
   padding: 0;
 }
+
+:root {
+  --background-color-light: linear-gradient(to right bottom, #5f7782, #b4c1c5);
+  --todo-box-bg-light: #dad5d2;
+  --text-color-light: #000000;
+  --button-text-color-light: #000000;
+  --button-bg-light: #efefef; /* Adding a light bg for button for consistency */
+  --button-border-light: #000000; /* Adding a light border for button */
+
+  --background-color-dark: linear-gradient(to right bottom, #232b2e, #4f5b62);
+  --todo-box-bg-dark: #3a474d;
+  --text-color-dark: #ffffff;
+  --button-text-color-dark: #ffffff;
+  --button-bg-dark: #4a575d; /* Adding a dark bg for button */
+  --button-border-dark: #ffffff; /* Adding a dark border for button */
+}
+
 .Container {
-  background: linear-gradient(to right bottom, #5f7782, #b4c1c5 );
+  background: var(--background-color-light);
   width: 100%;
   height: 100vh;
   display: flex;
@@ -12,12 +29,40 @@
   align-items: center;
 }
 .TodoBox {
-  background-color: #dad5d2;
+  background-color: var(--todo-box-bg-light);
+  color: var(--text-color-light);
   width: 50%;
   padding: 30px;
   box-sizing: border-box;
   border-radius: 10px;
   box-shadow: 5px 10px 50px rgba(0, 0, 0, 0.5);
+}
+
+.TodoBox button { /* Basic button styling for light mode */
+  background-color: var(--button-bg-light);
+  color: var(--button-text-color-light);
+  border: 1px solid var(--button-border-light);
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 15px; /* Add some space below the button */
+}
+
+.darkMode {
+  --background-color-light: var(--background-color-dark);
+  --todo-box-bg-light: var(--todo-box-bg-dark);
+  --text-color-light: var(--text-color-dark);
+  --button-text-color-light: var(--button-text-color-dark);
+  --button-bg-light: var(--button-bg-dark);
+  --button-border-light: var(--button-border-dark);
+}
+
+/* Ensure button in dark mode explicitly uses the dark theme variables */
+/* This is important if the button's default styles don't rely on inherited color */
+.darkMode .TodoBox button {
+  background-color: var(--button-bg-dark);
+  color: var(--button-text-color-dark);
+  border: 1px solid var(--button-border-dark);
 }
 
 @media screen and (max-width: 730px) {
@@ -36,5 +81,9 @@
   .TodoBox {
     width: 90%;
     margin: 30px 15px
+  }
+  .TodoBox button { /* Adjust dark mode toggle button for smaller screens */
+    padding: 4px 8px;
+    font-size: 0.9em;
   }
 }

@@ -8,7 +8,13 @@
     background-color: #154042d9  ;
     border-radius: 10px;
     padding: 1.5%;
-    height: 30px;
+    min-height: 30px; /* Changed from fixed height to min-height */
+    height: auto; /* Allow height to adjust to content */
+}
+
+.ListItem.darkMode {
+    background-color: var(--button-bg-dark); /* Using button-bg-dark for slight contrast with todo-box-bg-dark */
+    border-color: var(--button-border-dark);
 }
 
 .Complete {
@@ -16,6 +22,10 @@
     text-decoration-line: line-through;
     text-decoration-color: red;
     opacity: 0.5;
+}
+
+.Complete.darkMode {
+    text-decoration-color: #ff7f7f; /* Lighter red for dark mode visibility */
 }
 
 .List {
@@ -26,6 +36,11 @@
     font-size: 24px;
     padding-left: 10px;
     margin-right: 15px;
+}
+
+.List.darkMode {
+    color: var(--text-color-dark);
+    background-color: transparent; /* Ensure it stays transparent */
 }
 
 .ButtonsContainer {
@@ -54,6 +69,9 @@
     color: lightblue;
     margin-right: 10px;
 }
+.ButtonComplete.darkMode {
+    color: #add8e6; /* Light blue, same as default for now, but can be adjusted */
+}
 .ButtonComplete:hover {
     font-size: 27px;
 }
@@ -61,11 +79,17 @@
     color: orange;
     margin-right: 10px;
 }
+.ButtonEdit.darkMode {
+    color: #ffcc80; /* Lighter orange */
+}
 .ButtonEdit:hover {
     font-size: 27px;
 }
 .ButtonDelete {
     color: red;
+}
+.ButtonDelete.darkMode {
+    color: #ff7f7f; /* Lighter red */
 }
 .ButtonDelete:hover {
     font-size: 27px;
@@ -76,6 +100,10 @@ button:focus {
 
 .GreenButton {
     color: rgb(0, 178, 0);
+}
+
+.GreenButton.darkMode {
+    color: #90ee90; /* Light green */
 }
 
 @media screen and (max-width: 900px) {
@@ -96,6 +124,7 @@ button:focus {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        padding: 2% 1.5%; /* Slightly increase vertical padding for smaller screens */
     }
     .ButtonsContainer {
         width: 35%;

@@ -1,7 +1,7 @@
 import React from "react";
 import css from "./style.module.css";
 
-const TodosList = ({todos, setTodos, setEditTodo}) => {
+const TodosList = ({todos, setTodos, setEditTodo, darkMode}) => {
 
     const whenComplete = (todo) => {
         setTodos(todos.map((item) => {
@@ -24,16 +24,16 @@ const TodosList = ({todos, setTodos, setEditTodo}) => {
     return (
         <div>
             {todos.map((todo) => (
-                <li className={css.ListItem} key={todo.id}>
-                    <input type="text" value={todo.title} className={`${css.List} ${todo.completed ? css.Complete : ""}`} onChange={(event) => event.preventDefault()} disabled/>
+                <li className={`${css.ListItem} ${darkMode ? css.darkMode : ""}`} key={todo.id}>
+                    <input type="text" value={todo.title} className={`${css.List} ${todo.completed ? css.Complete : ""} ${darkMode ? css.darkMode : ""}`} onChange={(event) => event.preventDefault()} disabled/>
                     <div className={css.ButtonsContainer}>
-                        <button className={`${css.ButtonComplete} ${todo.completed ? css.GreenButton : ""}`} onClick={() => whenComplete(todo)}>
+                        <button className={`${css.ButtonComplete} ${todo.completed ? css.GreenButton : ""} ${darkMode ? css.darkMode : ""}`} onClick={() => whenComplete(todo)}>
                             <i className="fa-regular fa-circle-check"></i>
                         </button>
-                        <button className={`${css.ButtonEdit} ${css.TaskButton}`} onClick={() => whenEdit(todo)}>
+                        <button className={`${css.ButtonEdit} ${css.TaskButton} ${darkMode ? css.darkMode : ""}`} onClick={() => whenEdit(todo)}>
                             <i className="fa-solid fa-pen-to-square"></i>
                         </button>
-                        <button className={`${css.ButtonDelete} ${css.TaskButton}`} onClick={() => whenDelete(todo)}>
+                        <button className={`${css.ButtonDelete} ${css.TaskButton} ${darkMode ? css.darkMode : ""}`} onClick={() => whenDelete(todo)}>
                             <i className="fa-solid fa-trash"></i>
                         </button>
                     </div>

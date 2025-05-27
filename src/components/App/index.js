@@ -9,17 +9,25 @@ const App = () => {
   const [input, setInput] = useState("");
   const [todos, setTodos] = useState(initialState);
   const [editTodo, setEditTodo] = useState(null);
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
-      <div className={css.Container}>
+      <div className={`${css.Container} ${darkMode ? css.darkMode : ""}`}>
         <div className={css.TodoBox}>
-            <Title />
-            <Input input={input} setInput={setInput} todos={todos} setTodos={setTodos} editTodo={editTodo} setEditTodo={setEditTodo} />
-            <TodosList todos={todos} setTodos={setTodos} setEditTodo={setEditTodo} />
+            <button onClick={toggleDarkMode}>
+              {darkMode ? "Light Mode" : "Dark Mode"}
+            </button>
+            <Title darkMode={darkMode} />
+            <Input darkMode={darkMode} input={input} setInput={setInput} todos={todos} setTodos={setTodos} editTodo={editTodo} setEditTodo={setEditTodo} />
+            <TodosList darkMode={darkMode} todos={todos} setTodos={setTodos} setEditTodo={setEditTodo} />
         </div>
       </div>
   );
